@@ -8,7 +8,7 @@ class PDF(FPDF):
         
         with open(name, 'rb') as fh:
             txt = fh.read().decode('iso-8859-1')
-        self.add_font('DejaVu', '', 'DejaVuSansCondensed.ttf', uni=True)
+        
         
         self.set_font('DejaVu', '', 12)
         
