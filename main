@@ -7,10 +7,10 @@ class PDF(FPDF):
     def chapter_body(self, name):
         
         with open(name, 'rb') as fh:
-            txt = fh.read().decode('iso-8859-1')
+            txt = fh.read().decode('UTF-8')
+        self.add_font('Roboto', '', 'Roboto-Thin.ttf', uni=True)
         
-        
-        self.set_font('DejaVu', '', 12)
+        self.set_font('Roboto', '', 12)
         
         self.multi_cell(0, 5, txt)
         
