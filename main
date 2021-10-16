@@ -1,0 +1,45 @@
+from fpdf import FPDF
+
+
+class PDF(FPDF):
+
+
+    def chapter_body(self, name):
+        
+        with open(name, 'rb') as fh:
+            txt = fh.read().decode('iso-8859-1')
+        self.add_font('DejaVu', '', 'DejaVuSansCondensed.ttf', uni=True)
+        
+        self.set_font('DejaVu', '', 12)
+        
+        self.multi_cell(0, 5, txt)
+        
+        self.ln()
+
+
+    def print_chapter(self, name):
+        self.add_page()
+        # self.chapter_title(num, title)
+        self.chapter_body(name)
+
+
+pdf = PDF()
+
+
+pdf.print_chapter('text-teste.txt')
+
+pdf.output('tuto3.pdf', 'F',)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
